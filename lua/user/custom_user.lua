@@ -23,7 +23,7 @@ M.config = function()
   -- NOTE: custom icons doesn't work with nerd font v3 yet
   lvim.builtin.custom_web_devicons = false
   lvim.use_icons = true -- only set to false if you know what are you doing
-  lvim.builtin.sell_your_soul_to_devil = { active = true, prada = false }
+  lvim.builtin.sell_your_soul_to_devil = { active = true, prada = true }
   lvim.lsp.document_highlight = false
   lvim.builtin.task_runner = "async_tasks"
   lvim.builtin.dap.active = true
@@ -31,6 +31,7 @@ M.config = function()
   lvim.builtin.global_statusline = true
   lvim.builtin.dressing.active = true
   lvim.builtin.fancy_wild_menu.active = true
+  lvim.builtin.fancy_diff = { active = false }
   lvim.builtin.refactoring.active = true
   lvim.builtin.test_runner.runner = "neotest"
   lvim.format_on_save = {
@@ -46,7 +47,7 @@ M.config = function()
   lvim.builtin.python_programming.active = true
   lvim.builtin.web_programming.active = true
   lvim.builtin.rust_programming.active = true
-  lvim.builtin.cpp_programming.active = true
+  lvim.builtin.cpp_programming.active = false
   lvim.builtin.borderless_cmp = true
   lvim.builtin.colored_args = true
   lvim.reload_config_on_save = false -- NOTE: i don't like this
