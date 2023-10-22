@@ -29,20 +29,22 @@ M.config = function()
   lvim.builtin.dap.active = true
   vim.g.instant_username = vim.env.USER
   lvim.builtin.global_statusline = true
+  lvim.builtin.file_browser = { active = true } -- enable/disable telescope file browser
   lvim.builtin.dressing.active = true
   lvim.builtin.fancy_wild_menu.active = true
-  lvim.builtin.fancy_diff = { active = false }
+  lvim.builtin.fancy_diff = { active = true }
   lvim.builtin.refactoring.active = true
   lvim.builtin.test_runner.runner = "neotest"
+  lvim.builtin.sql_integration = { active = false } -- use sql integration
   lvim.format_on_save = {
     enabled = true,
     pattern = "*.rs",
     timeout = 2000,
     filter = require("lvim.lsp.utils").format_filter,
   }
-  lvim.builtin.smooth_scroll = "cinnamon"
+  lvim.builtin.smooth_scroll = "neoscroll"
   lvim.builtin.tree_provider = "neo-tree"
-  lvim.builtin.noice.active = false
+  lvim.builtin.noice.active = true
   lvim.builtin.go_programming.active = true
   lvim.builtin.python_programming.active = true
   lvim.builtin.web_programming.active = true

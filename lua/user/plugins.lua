@@ -362,6 +362,9 @@ M.config = function()
         require("neoscroll").setup {
           easing_function = "quadratic",
           hide_cursor = true,
+          stop_eof = true,
+          respect_scrolloff = false,
+          cursor_scrolls_alone = false,
         }
       end,
       event = "BufRead",
@@ -677,8 +680,9 @@ M.config = function()
     {
       "mfussenegger/nvim-dap-python",
       config = function()
-        local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
-        require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+        -- local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+        -- require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+        require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
         require("dap-python").test_runner = "pytest"
       end,
       ft = "python",

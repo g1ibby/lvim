@@ -283,6 +283,17 @@ The default is to serve localhost only, on port 8080. For a more advanced (remot
 
 ---
 
+## Debuger for python
+
+Install debugpy into a virtualenv
+
+```
+mkdir .virtualenvs
+cd .virtualenvs
+python -m venv debugpy
+debugpy/bin/python -m pip install debugpy
+```
+
 ## Screenshot
 
 <details>
