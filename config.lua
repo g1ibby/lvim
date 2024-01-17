@@ -64,15 +64,17 @@ lvim.builtin.noice = { active = false } -- enables noice.nvim and inc-rename.nvi
 lvim.builtin.go_programming = { active = false } -- gopher.nvim + nvim-dap-go
 lvim.builtin.python_programming = { active = false } -- swenv.nvim + nvim-dap-python + requirements.txt.vim
 lvim.builtin.web_programming = { active = false } -- typescript.nvim + package-info.nvim
-lvim.builtin.rust_programming = { active = false } -- rust_tools.nvim + crates.nvim
+lvim.builtin.rust_programming = { active = false } -- rustaceanvim + crates.nvim
 lvim.builtin.cpp_programming = { active = false } -- clangd_extensions.nvim + make-tools.nvim
 lvim.builtin.cmp.cmdline.enable = false
 lvim.builtin.borderless_cmp = false
 lvim.builtin.colored_args = false -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
-lvim.builtin.indentlines.mine = false
+lvim.builtin.indentlines.active = false
+lvim.builtin.indentlines.mine = true -- NOTE: using v3 till fixed upstream in lunarvim
 -- WARN: mind plugin is deprecated ( use with caution )
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
+lvim.builtin.symbols_usage = { active = false } -- enable/disable symbols-usage.nvim
 
 -- Custom User Config
 -- =========================================

@@ -91,12 +91,13 @@ M.rose_pine = function()
   require("rose-pine").setup {
     variant = "main",
     dark_variant = "main",
-    bold_vert_split = false,
-    dim_nc_background = lvim.builtin.global_statusline,
-    disable_background = lvim.transparent_window,
-    disable_float_background = true,
-    disable_italics = true,
-    ---@usage string hex value or named color from rosepinetheme.com/palette
+    dim_inactive_windows = lvim.builtin.global_statusline,
+    extend_background_behind_borders = true,
+    styles = {
+      bold = true,
+      italic = true,
+      transparency = lvim.transparent_window,
+    },
     groups = {
       border = "highlight_med",
       comment = "muted",
@@ -596,6 +597,18 @@ M.telescope_theme = function(colorset)
     set_fg_bg("FzfLuaScrollBorderEmpty", colors.bg, colors.bg)
     set_fg_bg("FzfLuaScrollBorderFull", colors.bg, colors.bg)
     set_fg_bg("FzfLuaHelpNormal", colors.bg_alt, colors.bg)
+  end
+
+  if lvim.builtin.symbols_usage.active then
+    local function h(name)
+      return vim.api.nvim_get_hl(0, { name = name })
+    end
+
+    vim.api.nvim_set_hl(0, "SymbolUsageRounding", { fg = h("CursorLine").bg, italic = true })
+    vim.api.nvim_set_hl(0, "SymbolUsageContent", { bg = h("CursorLine").bg, fg = h("Comment").fg, italic = true })
+    vim.api.nvim_set_hl(0, "SymbolUsageRef", { fg = h("Function").fg, bg = h("CursorLine").bg, italic = true })
+    vim.api.nvim_set_hl(0, "SymbolUsageDef", { fg = h("Type").fg, bg = h("CursorLine").bg, italic = true })
+    vim.api.nvim_set_hl(0, "SymbolUsageImpl", { fg = h("@keyword").fg, bg = h("CursorLine").bg, italic = true })
   end
 end
 

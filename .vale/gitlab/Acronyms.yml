@@ -14,10 +14,10 @@ first: '\b([A-Z]{3,5})\b'
 second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 # ... with the exception of these:
 exceptions:
-  - ACID
   - ACG
-  - ACL
+  - ACID
   - ACK
+  - ACL
   - ADFS
   - AJAX
   - AMSI
@@ -34,13 +34,16 @@ exceptions:
   - AWS
   - BAR
   - BASLR
+  - BCP
   - BEV
   - BGP
+  - BNB
+  - BPDU
   - BSD
   - BYOD
+  - CAM
   - CAS
   - CASMM
-  - CAM
   - CCSS
   - CDN
   - CET
@@ -80,19 +83,23 @@ exceptions:
   - DNS
   - DOM
   - DOS
-  - DTD
   - DSA
   - DSS
+  - DTD
   - DVCS
+  - EAP
   - ECDSA
   - ECS
   - EDR
+  - EEA
   - EFS
+  - EIGRP
   - EKS
   - EOL
   - EPA
   - ETC
   - ETCD
+  - ETH
   - EVM
   - EXIF
   - FAQ
@@ -121,6 +128,8 @@ exceptions:
   - HIPAA
   - HMAC
   - HMP
+  - HOTP
+  - HSM
   - HSTS
   - HTML
   - HTTP
@@ -129,6 +138,7 @@ exceptions:
   - IAM
   - IANA
   - IAT
+  - IAVL
   - IBM
   - ICMP
   - ICO
@@ -137,6 +147,7 @@ exceptions:
   - IDE
   - IDOR
   - IDS
+  - IGRP
   - IID
   - IMAP
   - IOPS
@@ -157,9 +168,11 @@ exceptions:
   - KDC
   - KMCI
   - KVM
+  - KYC
   - LAN
   - LDAP
   - LDAPS
+  - LED
   - LESS
   - LFS
   - LRU
@@ -169,17 +182,22 @@ exceptions:
   - MAC
   - MBR
   - MDL
+  - MDM
   - MEV
   - MFA
   - MIME
   - MIT
+  - MITM
   - MMIO
+  - MSA
   - MSSQL
   - MVC
+  - NAC
   - NAT
   - NDA
   - NFS
   - NFT
+  - NFV
   - NGFW
   - NGINX
   - NIST
@@ -191,6 +209,7 @@ exceptions:
   - ONLY
   - OPA
   - OSI
+  - OSPF
   - OSS
   - OTP
   - OTR
@@ -200,14 +219,15 @@ exceptions:
   - PCI
   - PCI-DSS
   - PDF
-  - PID
   - PEB
   - PEM
   - PEP
   - PGP
   - PHP
+  - PID
   - PNG
   - POC
+  - POP
   - POSIX
   - POST
   - PPP
@@ -226,6 +246,7 @@ exceptions:
   - RFC
   - RFI
   - RHEL
+  - RIP
   - ROM
   - ROP
   - RPC
@@ -235,6 +256,7 @@ exceptions:
   - RSA
   - RSS
   - RST
+  - RTL
   - RVA
   - RVM
   - SAAS
@@ -250,8 +272,8 @@ exceptions:
   - SCORE
   - SCP
   - SCSS
-  - SDK
   - SDDL
+  - SDK
   - SDLC
   - SDN
   - SEH
@@ -265,11 +287,12 @@ exceptions:
   - SIP
   - SLA
   - SLSA
-  - SMB
   - SMAP
+  - SMB
   - SMEP
   - SMS
   - SMTP
+  - SNMP
   - SOAP
   - SOAR
   - SOC
@@ -304,22 +327,25 @@ exceptions:
   - TODO
   - TOML
   - TOR
+  - TOTP
   - TSC
   - TTL
+  - UAF
   - UDP
   - UNIX
   - URI
   - URL
   - USB
   - UTC
-  - UTM
   - UTF
+  - UTM
   - UUID
   - VBS
   - VCS
   - VHD
   - VLAN
   - VNC
+  - VNF
   - VPC
   - VPN
   - VSS
