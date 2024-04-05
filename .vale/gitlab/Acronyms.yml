@@ -18,12 +18,14 @@ exceptions:
   - ACID
   - ACK
   - ACL
+  - ADC
   - ADFS
   - AJAX
   - AMSI
   - ANSI
   - API
   - APT
+  - ARINC
   - ARM
   - ARN
   - ARP
@@ -37,9 +39,11 @@ exceptions:
   - BCP
   - BEV
   - BGP
+  - BIOS
   - BNB
   - BPDU
   - BSD
+  - BSOD
   - BYOD
   - CAM
   - CAS
@@ -71,6 +75,7 @@ exceptions:
   - CTI
   - CVE
   - CVS
+  - DAC
   - DAG
   - DAO
   - DAST
@@ -95,11 +100,13 @@ exceptions:
   - EFS
   - EIGRP
   - EKS
+  - ELF
   - EOL
   - EPA
   - ETC
   - ETCD
   - ETH
+  - ETW
   - EVM
   - EXIF
   - FAQ
@@ -111,15 +118,24 @@ exceptions:
   - FREE
   - FTP
   - GCP
+  - GDB
   - GDK
   - GDPR
+  - GDT
+  - GEO
   - GET
   - GIF
   - GKE
   - GNU
+  - GOT
   - GPG
   - GPL
+  - GPR
+  - GPS
+  - GPT
   - GPU
+  - GSM
+  - GSO
   - GUI
   - GUID
   - HAML
@@ -131,6 +147,7 @@ exceptions:
   - HOTP
   - HSM
   - HSTS
+  - HTA
   - HTML
   - HTTP
   - HTTPS
@@ -150,31 +167,41 @@ exceptions:
   - IGRP
   - IID
   - IMAP
+  - IOC
   - IOPS
+  - IPC
   - IPFS
   - IPS
   - IRC
   - IRQL
   - ISAC
+  - ISF
   - ISN
   - ISO
+  - ISS
   - IUM
   - JPEG
   - JPG
+  - JSE
   - JSON
   - JVM
   - JWT
   - KASLR
   - KDC
   - KMCI
+  - KPTI
+  - KVA
   - KVM
   - KYC
   - LAN
   - LDAP
   - LDAPS
   - LED
+  - LEO
   - LESS
   - LFS
+  - LIDAR
+  - LNK
   - LRU
   - LSP
   - LTS
@@ -183,16 +210,20 @@ exceptions:
   - MBR
   - MDL
   - MDM
+  - MEO
   - MEV
   - MFA
   - MIME
   - MIT
   - MITM
   - MMIO
+  - MMU
   - MSA
+  - MSI
   - MSSQL
   - MVC
   - NAC
+  - NASA
   - NAT
   - NDA
   - NFS
@@ -209,12 +240,14 @@ exceptions:
   - ONLY
   - OPA
   - OSI
+  - OSINT
   - OSPF
   - OSS
   - OTP
   - OTR
   - OWASP
   - PAC
+  - PAE
   - PAT
   - PCI
   - PCI-DSS
@@ -225,6 +258,7 @@ exceptions:
   - PGP
   - PHP
   - PID
+  - PLT
   - PNG
   - POC
   - POP
@@ -310,6 +344,7 @@ exceptions:
   - SSO
   - SSRF
   - SSTI
+  - STIBP
   - SUID
   - SVG
   - SVN
@@ -322,6 +357,7 @@ exceptions:
   - TGT
   - TIFF
   - TIP
+  - TLB
   - TLD
   - TLS
   - TODO
@@ -329,9 +365,13 @@ exceptions:
   - TOR
   - TOTP
   - TSC
+  - TSS
   - TTL
+  - TTP
+  - TUI
   - UAF
   - UDP
+  - UEFI
   - UNIX
   - URI
   - URL
@@ -340,6 +380,8 @@ exceptions:
   - UTF
   - UTM
   - UUID
+  - VBA
+  - VBE
   - VBS
   - VCS
   - VHD
@@ -355,9 +397,13 @@ exceptions:
   - WMIC
   - WPAD
   - WSDL
+  - WSH
   - WSL
   - XDR
+  - XLAM
+  - XLL
   - XML
+  - XSL
   - XSS
   - XXE
   - YAML

@@ -103,7 +103,7 @@ lvim.plugins = {
   - `lvim.builtin.dap.active = true`
 - sometimes instead of saving you jump trough jumplist 😢 just disable nvim-lastplace
   - `lvim.builtin.lastplace = { active = false }`
-- sometimes `compe-tabnine` doesn't play nice, you can disable it :)
+- sometimes `cmp-tabnine` doesn't play nice, you can disable it :)
   - `lvim.builtin.tabnine = { active = false }`
 - if you don't need testing, just disable it (use `ultest` or `neotest`)
   - `lvim.builtin.test_runner = { active = false, runner = "ultest" }`
@@ -231,8 +231,6 @@ lvim # run :Lazy sync
 You can use [mason](mason) to install these:
 
 ```shell
-brew install luarocks
-luarocks install luacheck  # if you want to use luacheck
 cargo install selene  # if you want to use selene instead of luacheck
 brew install hadolint  # if you want to lint dockerfiles
 pip install vim-vint  # for vim linting
@@ -404,14 +402,13 @@ _Symbols Outline_
 - [Markdown Preview for (Neo)vim](https://github.com/iamcco/markdown-preview.nvim)
 - [Zen Mode](https://github.com/folke/zen-mode.nvim)
 - [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
-- [nvim-spectre](https://github.com/windwp/nvim-spectre)
+- [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
 - [colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [Neogen](https://github.com/danymat/neogen)
 - [Vimtex](https://github.com/lervag/vimtex)
 - [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
 - [flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim)
 - [NeoClip](https://github.com/AckslD/nvim-neoclip.lua)
-- [Telescope live grep args](nvim-telescope/telescope-live-grep-args.nvim)
 - [fidget](https://github.com/j-hui/fidget.nvim)
 - [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim)
 - [crates.nvim](https://github.com/Saecki/crates.nvim)
@@ -424,7 +421,7 @@ _Symbols Outline_
 - [Flash](https://github.com/folke/flash.nvim)
 - [Leap](https://github.com/ggandor/leap.nvim)
 - [remember.nvim](https://github.com/vladdoster/remember.nvim)
-- [Tabnine](https://github.com/tzachar/compe-tabnine)
+- [Tabnine](https://github.com/tzachar/cmp-tabnine)
 - [Persistence](https://github.com/olimorris/persisted.nvim)
 - [Presence](https://github.com/andweeb/presence.nvim)
 - [Orgmode.nvim](https://github.com/kristijanhusak/orgmode.nvim)
@@ -464,9 +461,12 @@ _Symbols Outline_
 - [inc-rename](https://github.com/smjonas/inc-rename.nvim)
 - [hlargs.nvim](https://github.com/m-demare/hlargs.nvim)
 - [cmake-tools.nvim](https://github.com/Civitasv/cmake-tools.nvim)
-- [mind.nvim](https://github.com/phaazon/mind.nvim)
+- [mind.nvim](https://github.com/Selyss/mind.nvim)
 - [wtf.nvim](https://github.com/piersolenski/wtf.nvim)
 - [backseat.nvim](https://github.com/james1236/backseat.nvim)
+- [outline.nvim](https://github.com/hedyhli/outline.nvim)
+- [typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim)
+- [large_file](https://github.com/mireq/large_file)
 
 </details>
 
