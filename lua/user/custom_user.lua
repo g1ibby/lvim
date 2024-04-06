@@ -38,12 +38,6 @@ M.config = function()
   lvim.builtin.refactoring.active = true
   lvim.builtin.test_runner.runner = "neotest"
   lvim.builtin.sql_integration = { active = false } -- use sql integration
-  lvim.format_on_save = {
-    enabled = true,
-    pattern = "*.rs",
-    timeout = 2000,
-    filter = require("lvim.lsp.utils").format_filter,
-  }
   lvim.builtin.smooth_scroll = "neoscroll"
   lvim.builtin.tree_provider = "neo-tree"
   lvim.builtin.noice.active = true
