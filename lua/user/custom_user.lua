@@ -37,6 +37,12 @@ M.config = function()
   lvim.builtin.fancy_diff = { active = true }
   lvim.builtin.refactoring.active = true
   lvim.builtin.test_runner.runner = "neotest"
+  lvim.format_on_save = {
+    enabled = true,
+    pattern = "*.rs",
+    timeout = 2000,
+    filter = require("lvim.lsp.utils").format_filter,
+  }
   lvim.builtin.sql_integration = { active = true } -- use sql integration
   lvim.builtin.smooth_scroll = "neoscroll"
   lvim.builtin.tree_provider = "neo-tree"
