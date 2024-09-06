@@ -28,39 +28,31 @@ M.config = function()
     )
   end
 
-  -- vim.cmd [[
-  -- " disable syntax highlighting in big files
-  -- function! DisableSyntaxTreesitter()
-  --     echo("Big file, disabling syntax, treesitter and folding")
-  --     if exists(':TSBufDisable')
-  --         exec 'TSBufDisable autotag'
-  --         exec 'TSBufDisable highlight'
-  --     endif
+  if lvim.builtin.bigfile.active == false then
+    vim.cmd [[
+  " disable syntax highlighting in big files
+  function! DisableSyntaxTreesitter()
+      if exists(':TSBufDisable')
+          exec 'TSBufDisable autotag'
+          exec 'TSBufDisable highlight'
+      endif
 
-  --     set foldmethod=manual
-  --     syntax clear
-  --     syntax off
-  --     filetype off
-  --     set noundofile
-  --     set noswapfile
-  --     set noloadplugins
-  --     set lazyredraw
-  -- endfunction
+      set foldmethod=manual
+      syntax clear
+      syntax off
+      filetype off
+      set noundofile
+      set noswapfile
+      set noloadplugins
+      set lazyredraw
+  endfunction
 
-  -- augroup BigFileDisable
-  --     autocmd!
-  --     autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
-  -- augroup END
-  --   ]]
-  create_aucmd("BufWinEnter", {
-    group = "_lvim_user",
-    pattern = "*.md",
-    desc = "beautify markdown",
-    callback = function()
-      vim.cmd [[set syntax=markdown]]
-      require("user.markdown_syn").set_syntax()
-    end,
-  })
+  augroup BigFileDisable
+      autocmd!
+      autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
+  augroup END
+    ]]
+  end
 
   if lvim.builtin.sql_integration.active then
     -- Add vim-dadbod-completion in sql files

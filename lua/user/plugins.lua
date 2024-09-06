@@ -10,11 +10,10 @@ M.config = function()
       "folke/tokyonight.nvim",
       config = function()
         require("user.theme").tokyonight()
-        vim.cmd [[colorscheme tokyonight]]
-      end,
-      cond = function()
         local _time = os.date "*t"
-        return (_time.hour >= 9 and _time.hour < 17) and lvim.builtin.time_based_themes
+        if (_time.hour >= 9 and _time.hour < 17) and lvim.builtin.time_based_themes then
+          lvim.colorscheme = "tokyonight-moon"
+        end
       end,
     },
     {
@@ -27,7 +26,6 @@ M.config = function()
       cond = function()
         local _time = os.date "*t"
         return (_time.hour >= 1 and _time.hour < 9) and lvim.builtin.time_based_themes
-        -- return false
       end,
     },
     {
@@ -78,16 +76,11 @@ M.config = function()
     {
       "folke/trouble.nvim",
       config = function()
-        require("trouble").setup {
-          auto_open = false,
-          auto_close = true,
-          padding = false,
-          height = 10,
-          use_diagnostic_signs = true,
-        }
+        require("user.troubl").config()
       end,
       event = "VeryLazy",
       cmd = "Trouble",
+      enabled = lvim.builtin.trouble.active,
     },
     {
       "ggandor/leap.nvim",
@@ -144,23 +137,7 @@ M.config = function()
       end,
     },
     {
-      "andymass/vim-matchup",
-      event = "BufReadPost",
-      config = function()
-        vim.g.matchup_enabled = 1
-        vim.g.matchup_surround_enabled = 1
-        vim.g.matchup_matchparen_deferred = 1
-        vim.g.matchup_matchparen_offscreen = { method = "popup" }
-      end,
-    },
-    {
-      "iamcco/markdown-preview.nvim",
-      build = "cd app && npm install",
-      ft = "markdown",
-    },
-    {
       "mrcjkb/rustaceanvim",
-      version = "^3",
       init = function()
         require("user.rust_tools").config()
       end,
@@ -293,6 +270,7 @@ M.config = function()
     { "nvim-neotest/neotest-go", event = { "BufEnter *.go" } },
     { "nvim-neotest/neotest-python", event = { "BufEnter *.py" } },
     { "rouge8/neotest-rust", event = { "BufEnter *.rs" } },
+    { "lawrence-laz/neotest-zig", event = { "BufEnter *.zig" } },
     {
       "rcarriga/vim-ultest",
       cmd = { "Ultest", "UltestSummary", "UltestNearest" },
@@ -375,12 +353,10 @@ M.config = function()
       "declancm/cinnamon.nvim",
       config = function()
         require("cinnamon").setup {
-          default_keymaps = true,
-          default_delay = 4,
-          extra_keymaps = true,
-          extended_keymaps = false,
-          centered = true,
-          scroll_limit = 100,
+          keymaps = { basic = true, extra = false },
+          options = {
+            mode = "window",
+          },
         }
       end,
       event = "BufRead",
@@ -517,7 +493,6 @@ M.config = function()
     },
     {
       "j-hui/fidget.nvim",
-      branch = "legacy",
       config = function()
         require("user.fidget_spinner").config()
       end,
@@ -832,6 +807,9 @@ M.config = function()
       "lukas-reineke/indent-blankline.nvim",
       name = "new-indent",
       main = "ibl",
+      config = function()
+        require("user.indent_blankline").setup()
+      end,
       enabled = lvim.builtin.indentlines.mine,
     },
     {
@@ -871,11 +849,42 @@ M.config = function()
       enabled = lvim.builtin.dap.active,
     },
     {
-      "mireq/large_file",
+      "abzcoding/markdown.nvim",
+      branch = "feature/fancy",
+      name = "render-markdown",
       config = function()
-        require("large_file").setup()
+        require("user.markd").config()
       end,
-      enabled = not lvim.builtin.bigfile.active,
+      enabled = lvim.builtin.markdown.active,
+    },
+    {
+      "abzcoding/project.nvim",
+      name = "new-project",
+      branch = "fix/nvim-12",
+      config = function()
+        require("user.project").config()
+      end,
+      enabled = not lvim.builtin.project.active and lvim.builtin.project.mine,
+    },
+    {
+      "folke/which-key.nvim",
+      name = "whhk",
+      event = "VeryLazy",
+      commit = "0119a83f6cd097701ff13044be4e1effc8dffe02",
+      pin = true,
+      config = function()
+        require("user.which").config()
+      end,
+      enabled = not lvim.builtin.which_key.active and lvim.builtin.which_key.mine,
+    },
+    {
+      "OXY2DEV/helpview.nvim",
+      lazy = true,
+      ft = "help",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+      enabled = lvim.builtin.markdown.active,
     },
   }
 end

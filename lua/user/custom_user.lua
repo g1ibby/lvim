@@ -59,11 +59,13 @@ M.config = function()
   lvim.builtin.mind.active = true
   lvim.builtin.motion_provider = "flash"
   lvim.builtin.harpoon.active = true
-  lvim.builtin.symbols_usage.active = true
+  lvim.builtin.symbols_usage.active = false
   lvim.builtin.tag_provider = "outline"
-  lvim.builtin.bigfile.active = true
-  lvim.builtin.project.manual_mode = true
-  -- require("lvim.lsp.manager").setup("prosemd_lsp", {})
+  lvim.builtin.bigfile.active = false
+  lvim.builtin.trouble.active = true
+  lvim.builtin.markdown.active = true
+  lvim.builtin.project.active = false
+  lvim.builtin.project.mine = true
 end
 
 return M
