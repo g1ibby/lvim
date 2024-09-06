@@ -1,7 +1,7 @@
 -- Neovim
 -- =========================================
 lvim.leader = " "
-lvim.colorscheme = "tokyonight" -- set to a custom theme
+lvim.colorscheme = "tokyonight-moon" -- set to a custom theme
 lvim.builtin.time_based_themes = true -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
@@ -74,6 +74,11 @@ lvim.builtin.indentlines.active = false
 lvim.builtin.indentlines.mine = true -- NOTE: using v3 till fixed upstream in lunarvim
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 lvim.builtin.symbols_usage = { active = false } -- enable/disable symbols-usage.nvim
+lvim.builtin.trouble = { active = false } -- enable/disable trouble.nvim
+lvim.builtin.markdown = { active = false } -- enable/disable markdown.nvim
+lvim.builtin.project.mine = false
+lvim.builtin.which_key.active = false -- pin to v2.0.1
+lvim.builtin.which_key.mine = true -- pin to v2.0.1
 
 -- Custom User Config
 -- =========================================

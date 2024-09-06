@@ -266,16 +266,21 @@ M.config = function()
   -- GitSigns
   -- =========================================
   lvim.builtin.gitsigns.opts._threaded_diff = true
-  lvim.builtin.gitsigns.opts._extmark_signs = true
   lvim.builtin.gitsigns.opts.current_line_blame_formatter = " <author>, <author_time> · <summary>"
   lvim.builtin.gitsigns.opts.attach_to_untracked = false
   lvim.builtin.gitsigns.opts.yadm = nil
+  lvim.builtin.gitsigns.opts.signs = {
+    add = { text = "┃" },
+    change = { text = "┃" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked = { text = "┆" },
+  }
 
   -- IndentBlankline
   -- =========================================
-  if lvim.builtin.indentlines.mine then
-    require("user.indent_blankline").setup()
-  elseif lvim.builtin.indentlines.active then
+  if lvim.builtin.indentlines.mine == false and lvim.builtin.indentlines.active then
     require("user.indent_blankline").config()
   end
 
@@ -294,9 +299,11 @@ M.config = function()
     "CodeLens Action",
   }
   lvim.lsp.buffer_mappings.normal_mode["gt"] = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" }
-  lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Trouble lsp_references<CR>", "Goto References" }
-  lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Trouble lsp_definitions<CR>", "Goto Definition" }
-  lvim.lsp.buffer_mappings.normal_mode["gI"] = { "<cmd>Trouble lsp_implementations<CR>", "Goto Implementation" }
+  if lvim.builtin.trouble.active then
+    lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Trouble lsp_references<CR>", "Goto References" }
+    lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Trouble lsp_definitions<CR>", "Goto Definition" }
+    lvim.lsp.buffer_mappings.normal_mode["gI"] = { "<cmd>Trouble lsp_implementations<CR>", "Goto Implementation" }
+  end
   lvim.lsp.buffer_mappings.normal_mode["gp"] = {
     function()
       require("user.peek").Peek "definition"
@@ -349,16 +356,6 @@ M.config = function()
   end
   -- lvim.builtin.nvimtree.hide_dotfiles = 0
 
-  -- Project
-  -- =========================================
-  lvim.builtin.project.active = true
-  lvim.builtin.project.detection_methods = { "lsp", "pattern" }
-
-  -- Theme
-  -- =========================================
-  require("user.theme").tokyonight()
-  lvim.builtin.theme.name = "tokyonight"
-
   -- Toggleterm
   -- =========================================
   lvim.builtin.terminal.active = true
@@ -373,15 +370,18 @@ M.config = function()
   -- Treesitter
   -- =========================================
   lvim.builtin.treesitter.context_commentstring.enable = true
-  local languages = vim.tbl_flatten {
-    { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "d", "dart" },
-    { "dockerfile", "elixir", "elm", "erlang", "fennel", "fish", "go", "gomod" },
-    { "gomod", "graphql", "hcl", "vimdoc", "html", "java", "javascript", "jsdoc" },
-    { "json", "jsonc", "julia", "kotlin", "latex", "ledger", "lua", "make" },
-    { "markdown", "markdown_inline", "nix", "ocaml", "perl", "php", "python" },
-    { "query", "r", "regex", "rego", "ruby", "rust", "scala", "scss", "solidity" },
-    { "swift", "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
-  }
+  local languages = vim
+    .iter({
+      { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "d", "dart" },
+      { "dockerfile", "elixir", "elm", "erlang", "fennel", "fish", "go", "gomod" },
+      { "gomod", "graphql", "hcl", "vimdoc", "html", "java", "javascript", "jsdoc" },
+      { "json", "jsonc", "julia", "kotlin", "latex", "ledger", "lua", "make" },
+      { "markdown", "markdown_inline", "nix", "ocaml", "perl", "php", "python" },
+      { "query", "r", "regex", "rego", "ruby", "rust", "scala", "scss", "solidity" },
+      { "swift", "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
+    })
+    :flatten()
+    :totable()
   lvim.builtin.treesitter.ensure_installed = languages
   lvim.builtin.treesitter.highlight.disable = { "org" }
   lvim.builtin.treesitter.highlight.aditional_vim_regex_highlighting = { "org" }
@@ -436,17 +436,7 @@ M.config = function()
       },
     },
     swap = {
-      enable = true,
-      swap_next = {
-        ["<leader><M-a>"] = "@parameter.inner",
-        ["<leader><M-f>"] = "@function.outer",
-        ["<leader><M-e>"] = "@element",
-      },
-      swap_previous = {
-        ["<leader><M-A>"] = "@parameter.inner",
-        ["<leader><M-F>"] = "@function.outer",
-        ["<leader><M-E>"] = "@element",
-      },
+      enable = false,
     },
     move = {
       enable = true,
@@ -484,7 +474,7 @@ M.config = function()
     -- results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' };
     preview = { " ", "│", " ", "▌", "▌", "╮", "╯", "▌" },
   }
-  lvim.builtin.telescope.defaults.selection_caret = "  "
+  -- lvim.builtin.telescope.defaults.selection_caret = "  "
   lvim.builtin.telescope.defaults.cache_picker = { num_pickers = 3 }
   lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
   lvim.builtin.telescope.defaults.file_ignore_patterns = {
@@ -600,6 +590,9 @@ M.config = function()
     telescope.load_extension "file_create"
     if lvim.builtin.file_browser.active then
       telescope.load_extension "file_browser"
+    end
+    if lvim.builtin.project.mine then
+      telescope.load_extension "projects"
     end
   end
 
@@ -935,7 +928,7 @@ M.enhanced_float_handler = function(handler)
           local to
           from, to = line:find(pattern, from)
           if from then
-            vim.api.nvim_buf_set_extmark(buf, md_namespace, l - 1, from - 1, {
+            vim.api.nvim_buf_set_extmark(buf, -1, l - 1, from - 1, {
               end_col = to,
               hl_group = hl_group,
             })
